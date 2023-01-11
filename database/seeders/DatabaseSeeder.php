@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Course;
+use App\Models\Curriculum;
+use App\Models\Lead;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -18,22 +21,54 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user->name = 'Shamim Rahman';
-        $user->email = 'sda.hosain@gmail.com';
-        $user->password = bcrypt('$hamim7464605');
-        $user->save();
 
-        // Create Role & Permission of this user
+        // Creating Roles, Users using 'create_user_with_role' function and it's parameter.
+        $this->create_user_with_role('Super Admin', 'Super Admin', 'sda.hosain@gmail.com');
+        $this->create_user_with_role('Communication', 'Communication Team', 'communication@gmail.com');
+        $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@gmail.com');
 
-        $role = Role::create(['name' => 'Super Admin']);
-        $permission = Permission::create(['name' => 'create-admin']);
 
-        // Assigned with Role & Permission
+        // Create 100 fake Leads.
+        Lead::factory(100)->create();
 
-        $role->givePermissionTo($permission);
-        $permission->assignRole($role);
+        // Create a fake single Course.
+        $course = Course::create([
+            'name' => 'Laravel',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsa in rem vitae numquam veritatis libero amet deleniti consequatur? Itaque.',
+            'image' => 'https://rb.gy/gjhgtx',
+            'user_id' => $teacher->id
+        ]);
 
+        // Create 10 fake Curriculum names.
+        Curriculum::factory()->count(10)->create();
+    }
+
+    // Make a function for create roles and users.
+    private function create_user_with_role($type, $name, $email){
+        $role = Role::create([
+            'name' => $type
+        ]);
+
+        $user = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt('password')
+        ]);
+
+        // Assign a logic if this $type parameter is a Super Admin, then give permission for create admin.
+        if($type == 'Super Admin') {
+
+            $permission = Permission::create([
+                'name' => 'create-admin'
+            ]);
+
+            $role->givePermissionTo($permission);
+
+        }
+
+        // Created user merged with role.
         $user->assignRole($role);
+
+        return $user;
     }
 }

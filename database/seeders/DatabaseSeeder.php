@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $defaultPermissions = ['lead-management', 'create-admin'];
+        foreach($defaultPermissions as $permission) {
+            Permission::create([
+                'name' => $permission
+            ]);
+        }
 
         // Creating Roles, Users using 'create_user_with_role' function and it's parameter.
         $this->create_user_with_role('Super Admin', 'Super Admin', 'sda.hosain@gmail.com');
@@ -58,13 +64,9 @@ class DatabaseSeeder extends Seeder
 
         // Assign a logic if this $type parameter is a Super Admin, then give permission for create admin.
         if($type == 'Super Admin') {
-
-            $permission = Permission::create([
-                'name' => 'create-admin'
-            ]);
-
-            $role->givePermissionTo($permission);
-
+            $role->givePermissionTo(Permission::all());
+        }elseif($type == 'Leads') {
+            $role->givePermissionTo('lead-management');
         }
 
         // Created user merged with role.

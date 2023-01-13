@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->create_user_with_role('Super Admin', 'Super Admin', 'sda.hosain@gmail.com');
         $this->create_user_with_role('Communication', 'Communication Team', 'communication@gmail.com');
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@gmail.com');
+        $this->create_user_with_role('Leads', 'Leads', 'leads@gmail.com');
 
 
         // Create 100 fake Leads.

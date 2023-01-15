@@ -43,7 +43,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Laravel',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsa in rem vitae numquam veritatis libero amet deleniti consequatur? Itaque.',
             'image' => 'https://rb.gy/gjhgtx',
-            'user_id' => $teacher->id
+            'user_id' => $teacher->id,
+            'price' => 500
         ]);
 
         // Create 10 fake Curriculum names.

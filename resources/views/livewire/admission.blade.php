@@ -31,9 +31,9 @@
             @if (!empty($selectedCourse))
                 <p class="mb-3">Price: ${{ number_format($selectedCourse->price, 2) }}</p>
 
-                {{-- <div class="mb-3">
-                    <input type="number" wire:model.lazy="payment" step=".01" placeholder="Pay Now" class="lms-input">
-                </div> --}}
+                <div class="mb-3">
+                    <input type="number" wire:model.lazy="payment" step=".01" max="{{ number_format($selectedCourse->price, 2) }}" placeholder="Pay Now" class="lms-input">
+                </div>
 
                 @include('components.wire-loading-btn')
 

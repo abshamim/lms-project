@@ -15,7 +15,7 @@
                 <td class="border px-4 py-2 text-center">{{ date('F j, Y', strtotime($lead->created_at)) }}</td>
                 <td class="border px-4 py-2 text-center">
                     <div class="flex items-center justify-center">
-                        <a class="bg-fuchsia-600 p-2 rounded-[50px] text-white" href="{{ route('lead.edit', $lead->id) }}">
+                        <a class="bg-blue-600 p-2 rounded-[50px] text-white" href="{{ route('lead.edit', $lead->id) }}">
                             @include('components.icons.edit')
                         </a>
                         <a class="p-2 mx-2 bg-slate-600 rounded-[50px] text-white" href="{{ route('lead.show', $lead->id) }}">

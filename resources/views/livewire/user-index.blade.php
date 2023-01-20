@@ -20,7 +20,7 @@
                             @include('components.icons.view')
                         </a>
 
-                        <form onsubmit="return confirm('Are you sure?')" wire:submit.prevent="userDelete({{ $user->id }})">
+                        <form onclick="return confirm('Are you sure?')" wire:submit.prevent="userDelete({{ $user->id }})">
                             <button class="mb-1 p-2 rounded-[50px] bg-rose-600 text-white" type="submit">
                                 @include('components.icons.delete')
                             </button>

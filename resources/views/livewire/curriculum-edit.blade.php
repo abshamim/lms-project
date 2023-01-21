@@ -1,8 +1,8 @@
 <div>
     <form wire:submit.prevent="submitForm" class="mb-4">
         <h1 class="font-bold text-xl mb-5">Edit your Class</h1>
-        <div class="flex -mx-4 mb-2">
-            <div class="flex-1 px-4">
+        <div class="mb-2">
+            <div class="py-2">
                 <div class="mb-4">
                     <label for="" class="lms-label">Name</label>
                     <input wire:model.lazy="name" type="text" class="lms-input">

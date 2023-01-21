@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdmissionController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\CurriculumController;
-use App\Http\Controllers\InvoiceController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LeadController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\CurriculumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('role', RoleController::class);
     Route::resource('course', CourseController::class);
     Route::resource('curriculum', CurriculumController::class);
+    Route::resource('question', QuestionController::class);
+    Route::resource('quiz', QuizController::class);
     Route::get('/admission', [AdmissionController::class, 'admission'])->name('admission');
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice-index');
     Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice-show');

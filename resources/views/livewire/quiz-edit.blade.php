@@ -17,7 +17,7 @@
 
     @if (count($questions)>0)
     <form class="" wire:submit.prevent="addQuestion">
-        <div class="min-w-max ml-3">
+        <div class="min-w-max">
             <label for="question">Add Question</label>
             <select wire:model="question" id="question" class= "mb-4">
                 @foreach($questions as $question)

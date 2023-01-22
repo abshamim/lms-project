@@ -5,7 +5,7 @@
                 {{ __('Questions') }}
             </h2>
 
-            <a class="py-2 px-5 mb-2 mr-4 text-white bg-indigo-700 rounded" href="{{ route('question.create') }}">Add a question</a>
+            <a class="py-2 px-5 mb-2 mr-4 text-white bg-indigo-700 rounded" href="{{ route('question.create') }}">Add a Question</a>
         </div>
     </x-slot>
 

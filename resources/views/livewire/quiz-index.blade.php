@@ -3,7 +3,7 @@
         <table class="w-full border">
             <thead>
                 <tr class="bg-emerald-500">
-                    <th class="border px-4 py-2 text-left text-lg text-white" >Name</th>
+                    <th class="border px-4 py-2 text-left text-lg text-white">Name</th>
                     <th class="border px-4 py-2 text-center text-white">
                         <div class="flex items-center justify-center">Action</div>
                     </th>

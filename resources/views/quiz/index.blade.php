@@ -11,8 +11,8 @@
                 <div class="p-6 text-gray-900">
                     <form action="{{route('quiz.store')}}" method="post"> @csrf
                         <div class="mb-4">
-                            <label for="name" class="lms-label">Name</label>
-                            <input type="text" name="name" id="name" class="lms-input">
+                            <label for="name" class="lms-label">Add New Quiz</label>
+                            <input type="text" placeholder="Enter Quiz" name="name" id="name" class="lms-input">
                         </div>
                         <button type="submit" class="lms-btn">Add a Quiz</button>
 

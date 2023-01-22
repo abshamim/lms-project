@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Create a question') }}
+                {{ __('Create a Question') }}
             </h2>
 
             <a class="py-2 px-5 mb-2 text-white bg-indigo-700 rounded" href="{{ route('question.index') }}">Back</a>

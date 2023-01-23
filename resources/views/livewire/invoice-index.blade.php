@@ -15,7 +15,7 @@
                 <td class="border px-4 py-2">{{ $invoice->user->name }}</td>
                 <td class="border px-4 py-2">{{ date('F j, Y', strtotime($invoice->due_date)) }}</td>
                 <td class="border px-4 py-2 text-center">${{ number_format($invoice->amount()['total'], 2) }}</td>
-                <td class="border px-4 py-2 text-center">${{ number_format($invoice->amount()['paid'], 2) }}</td>
+                <td class="border px-4 py-2 text-center">- ${{ number_format($invoice->amount()['paid'], 2) }}</td>
                 <td class="border px-4 py-2 text-center">${{ number_format($invoice->amount()['due'], 2 ) }}</td>
                 <td class="border px-4 py-2 text-center">
                     <div class="flex items-center justify-center">

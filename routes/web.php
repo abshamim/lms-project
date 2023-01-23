@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\CurriculumController;
+use App\Http\Controllers\StripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice-index');
     Route::get('/invoice/edit/{id}', [InvoiceController::class, 'edit'])->name('invoice-edit');
     Route::get('/invoice/show/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
+
+    Route::post('/stripe-payment', [StripePaymentController::class, 'stripePayment'])->name('stripe-payment');
+
 });
 
 require __DIR__.'/auth.php';

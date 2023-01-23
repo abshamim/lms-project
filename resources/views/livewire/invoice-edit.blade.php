@@ -13,8 +13,8 @@
         @foreach($invoice->invItems as $item)
         <tr>
             <td class="border px-4 py-2 font-bold">{{$item->name}}</td>
-            <td class="border px-4 py-2">${{number_format($item->price, 2)}}</td>
-            <td class="border px-4 py-2">{{$item->quantity}}</td>
+            <td class="border px-4 py-2 text-center">${{number_format($item->price, 2)}}</td>
+            <td class="border px-4 py-2 text-center">{{$item->quantity}}</td>
             <td class="border px-4 py-2 text-right font-bold">${{number_format($item->price * $item->quantity, 2)}}</td>
         </tr>
         @endforeach
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td colspan="3" class="border px-4 py-2 text-right font-bold">Paid</td>
-            <td class="border px-4 py-2 text-right font-bold">${{number_format($invoice->amount()['paid'], 2)}}</td>
+            <td class="border px-4 py-2 text-right font-bold">- ${{number_format($invoice->amount()['paid'], 2)}}</td>
         </tr>
         <tr>
             <td colspan="3" class="border px-4 py-2 text-right font-bold">Due</td>

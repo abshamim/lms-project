@@ -15,30 +15,34 @@ class InvoiceController extends Controller
     }
 
     public function show($id) {
-        $DBinvoice = Invoice::findOrFail($id);
+        // $DBinvoice = Invoice::findOrFail($id);
 
-        $customer = new Buyer([
-            'name'          => $DBinvoice->user->name,
-            'custom_fields' => [
-                'email' => $DBinvoice->user->email
-            ],
+        // $customer = new Buyer([
+        //     'name'          => $DBinvoice->user->name,
+        //     'custom_fields' => [
+        //         'email' => $DBinvoice->user->email
+        //     ],
+        // ]);
+
+        // $invItems = [];
+        // foreach($DBinvoice->invItems as $item) {
+        //     $invItems[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
+        // }
+
+        // $invoice = FacadesInvoice::make()
+        //     ->buyer($customer)
+        //     ->addItems($invItems)
+        //     ->currencySymbol('$')
+        //     ->currencyCode('USD')
+        //     ->currencyFormat('{SYMBOL} {VALUE}')
+        //     ->date(now()->subWeeks(3))
+        //     ->serialNumberFormat('{SEQUENCE}/{SERIES}');
+
+        // return $invoice->stream();
+
+        return view('user.invoice.show', [
+            'invoice' => Invoice::findOrFail($id),
         ]);
-
-        $invItems = [];
-        foreach($DBinvoice->invItems as $item) {
-            $invItems[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
-        }
-
-        $invoice = FacadesInvoice::make()
-            ->buyer($customer)
-            ->addItems($invItems)
-            ->currencySymbol('$')
-            ->currencyCode('USD')
-            ->currencyFormat('{SYMBOL} {VALUE}')
-            ->date(now()->subWeeks(3))
-            ->serialNumberFormat('{SEQUENCE}/{SERIES}');
-
-        return $invoice->stream();
     }
 
     public function edit($id)
